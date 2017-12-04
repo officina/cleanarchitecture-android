@@ -110,13 +110,14 @@ public abstract class BaseActivity extends AppCompatActivity implements Presente
                 (params.height == ViewGroup.LayoutParams.MATCH_PARENT);
         event.setFullScreen(isFullScreen);
 
+        // MOVED TO BaseFragment#onResume method
         // get the accessibility text from the current fragment
-        if (mNavigationManager != null) {
-            BaseFragment fragment = mNavigationManager.getCurrentFragment(this);
-            if (fragment != null) {
-                fragment.populateAccessibilityEvent(event);
-            }
-        }
+        //if (mNavigationManager != null) {
+        //    BaseFragment fragment = mNavigationManager.getCurrentFragment(this);
+        //    if (fragment != null) {
+        //        fragment.populateAccessibilityEvent(event);
+        //    }
+        //}
 
         return true;
     }
