@@ -34,8 +34,8 @@ android {
     defaultConfig {
         minSdkVersion 17
         targetSdkVersion 25
-        versionCode 1000
-        versionName "0.1.0"
+        versionCode 2000
+        versionName "0.2.0"
 
         defaultPublishConfig 'release'
         publishNonDefault true
@@ -83,6 +83,7 @@ dependencies {
     compile externalModuleDependencies.square.retrofit2.retrofit
     compile externalModuleDependencies.square.retrofit2.adapterrxjava
     compile externalModuleDependencies.square.retrofit2.convertergson
+    compile externalModuleDependencies.reservoir
     compile externalModuleDependencies.support.appcompat
     compile externalModuleDependencies.support.design
 }
