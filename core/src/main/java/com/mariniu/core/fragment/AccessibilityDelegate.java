@@ -21,4 +21,11 @@ public interface AccessibilityDelegate {
      * @param event The event.
      */
     void populateAccessibilityEvent(AccessibilityEvent event);
+
+    /**
+     * This method will return the accessibility description of the delegate.
+     *
+     * @return The accessibility supporting text.
+     */
+    CharSequence getAccessibilityText();
 }

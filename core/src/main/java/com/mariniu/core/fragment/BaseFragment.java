@@ -19,6 +19,7 @@ package com.mariniu.core.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.accessibility.AccessibilityEvent;
 
 import com.mariniu.core.events.EventDispatcher;
@@ -66,7 +67,7 @@ public abstract class BaseFragment extends Fragment implements PresenterRequeste
         EventDispatcher.loadPoint(this, mEventDispatcherTag);
         EventDispatcher.register(this);
         onPresenterRequesterAttached();
-        if(mPresenterRequesterCreationSemaphore == 0){
+        if (mPresenterRequesterCreationSemaphore == 0) {
             mPresenterRequesterCreationSemaphore = 1;
             onPresenterRequesterCreated();
         }
@@ -108,5 +109,16 @@ public abstract class BaseFragment extends Fragment implements PresenterRequeste
     public void populateAccessibilityEvent(AccessibilityEvent event) {
         // do nothing. fragments extending from BaseFragment should implement
         // this method to add supporting accessibility text to the given event
+        CharSequence supportingText = getAccessibilityText();
+        if (!TextUtils.isEmpty(supportingText)) {
+            event.getText().add(supportingText);
+        }
+    }
+
+    @Override
+    public CharSequence getAccessibilityText() {
+        // return null. fragments extending from BaseFragment should implement
+        // this method to define supporting accessibility text for the fragment
+        return null;
     }
 }
