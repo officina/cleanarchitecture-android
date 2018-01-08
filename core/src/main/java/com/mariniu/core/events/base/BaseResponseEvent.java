@@ -19,10 +19,10 @@ package com.mariniu.core.events.base;
 import android.support.annotation.StringDef;
 import android.util.Log;
 
+import com.mariniu.core.LibConfiguration;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-
-import com.mariniu.core.LibConfiguration;
 
 /**
  * Created on 30/03/16.
@@ -114,6 +114,18 @@ public class BaseResponseEvent {
             return BASE_STATUS_OK.equals(mEventStatus);
         } else {
             return BASE_STATUS_OK.equals(mEventStatus) && mDelegate.matchOwnership(owner);
+        }
+    }
+
+    public boolean isValidResponse() {
+        return BASE_STATUS_OK.equals(mEventStatus);
+    }
+
+    public boolean matchOwnership(Class owner) {
+        if (mDelegate == null) {
+            return owner == null;
+        } else {
+            return mDelegate.matchOwnership(owner);
         }
     }
 
