@@ -30,7 +30,7 @@ task clean(type: Delete) {
 }
 
 ext {
-    def google_support_version = "25.3.1"
+    def google_support_version = "27.1.1"
     def dagger_version = "2.9"
     def retrofit_version = "2.2.0"
 
