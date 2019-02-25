@@ -34,7 +34,7 @@ android {
 
     defaultConfig {
         applicationId "com.mariniu.core.sample"
-        minSdkVersion 17
+        minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
