@@ -23,17 +23,16 @@ import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.Toast;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
-import javax.inject.Inject;
-
 import com.mariniu.core.R;
 import com.mariniu.core.dagger.components.DaggerNavigationComponent;
 import com.mariniu.core.events.EventDispatcher;
-import com.mariniu.core.fragment.BaseFragment;
 import com.mariniu.core.navigation.NavigationManager;
 import com.mariniu.core.presenter.PresenterManager;
 import com.mariniu.core.presenter.PresenterRequester;
+
+import java.util.concurrent.atomic.AtomicBoolean;
+
+import javax.inject.Inject;
 
 /**
  * Base class for activities that use:
@@ -141,7 +140,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Presente
         EventDispatcher.loadPoint(this, String.valueOf(mEventDispatcherTag));
         EventDispatcher.register(this);
         onPresenterRequesterAttached();
-        if(mPresenterRequesterCreationSemaphore == 0){
+        if (mPresenterRequesterCreationSemaphore == 0) {
             mPresenterRequesterCreationSemaphore = 1;
             onPresenterRequesterCreated();
         }
@@ -273,11 +272,11 @@ public abstract class BaseActivity extends AppCompatActivity implements Presente
     /**
      * This method will return whether this Activity is running or not.
      */
-    public boolean isRunning(){
+    public boolean isRunning() {
         return mIsRunning.get();
     }
 
     public int getContentViewId() {
-        return 0;
+        return mContentViewId;
     }
 }
